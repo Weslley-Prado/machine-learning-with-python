@@ -1,46 +1,52 @@
-class Bicicleta:
-    """Classe que representa uma bicicleta."""
+class Bicycle:
+    """Class representing a bicycle."""
 
-    def __init__(self, marca: str, modelo: int, cor: str, valor: float):
+    def __init__(self, brand: str, model: int, color: str, price: float):
         """
-        Inicializa uma nova instância da classe Bicicleta.
+        Initializes a new instance of the Bicycle class.
 
         Args:
-            marca (str): Marca da bicicleta.
-            modelo (int): Modelo da bicicleta.
-            cor (str): Cor da bicicleta.
-            valor (float): Valor da bicicleta.
+            brand (str): The brand of the bicycle.
+            model (int): The model of the bicycle.
+            color (str): The color of the bicycle.
+            price (float): The price of the bicycle.
         """
-        self.marca = marca
-        self.modelo = modelo
-        self.cor = cor
-        self.valor = valor
+        self.brand = brand
+        self.model = model
+        self.color = color
+        self.price = price
+        print("Allocating memory for the bicycle.")
 
-    def buzinar(self) -> None:
-        """Emite o som da buzina da bicicleta."""
-        print("Biuu!")
+    def honk(self) -> None:
+        """Emits the sound of the bicycle's horn."""
+        print("Beep!")
 
-    def parar(self) -> None:
-        """Simula a parada da bicicleta."""
-        print("Parando bicicleta...")
-        print("Bicicleta parada!")
+    def stop(self) -> None:
+        """Simulates stopping the bicycle."""
+        print("Stopping the bicycle...")
+        print("Bicycle stopped!")
 
-    def correr(self) -> None:
-        """Simula o som da bicicleta correndo."""
-        print("Vrumm")
+    def ride(self) -> None:
+        """Simulates the sound of the bicycle riding."""
+        print("Vroom")
 
     def __str__(self) -> str:
-        """Retorna uma representação em string da bicicleta."""
-        atributos = ', '.join(f'{chave}={valor}' for chave, valor in self.__dict__.items())
-        return f"{self.__class__.__name__}: {atributos}"
+        """Returns a string representation of the bicycle."""
+        attributes = ', '.join(f'{key}={value}' for key, value in self.__dict__.items())
+        return f"{self.__class__.__name__}: {attributes}"
 
-# Criar uma instância da classe Bicicleta
-caloi = Bicicleta("Caloi", 2022, "vermelha", 600.00)
+    def __del__(self):
+        """Method called when the instance is deleted."""
+        print("Bicycle removed!")
 
-# Interações com a instância da bicicleta
-caloi.buzinar()
-caloi.correr()
-caloi.parar()
 
-# Imprimir a representação da instância
+# Creating an instance of the Bicycle class
+caloi = Bicycle("Caloi", 2022, "red", 600.00)
+
+# Interactions with the bicycle instance
+caloi.honk()
+caloi.ride()
+caloi.stop()
+
+# Print the string representation of the instance
 print(caloi)
